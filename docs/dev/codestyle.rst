@@ -22,12 +22,19 @@ committing them.
     keystrokes.
 
 For sorting imports, we reply on `isort`_. Our repository already includes a
-`.isort.cfg` that is compatible with black. You can run a code style check on
+``.isort.cfg`` that is compatible with black. 
+
+We use `flake8`_ and `flake8-docstrings`_ to check code style as well, such as
+ensuring docstrings are present and that there are not unused imports.
+
+You can run a code style check on
 your local machine by running our checks::
 
     $ make check 
 
-.. _pre-commit: https://pre-commit.com/
-.. _isort: https://github.com/timothycrosley/isort
 .. _black editor integrations: https://github.com/ambv/black#editor-integration
 .. _black: https://github.com/ambv/black 
+.. _flake8-docstrings: https://pypi.org/project/flake8-docstrings/
+.. _flake8: http://flake8.pycqa.org/en/latest/
+.. _isort: https://github.com/timothycrosley/isort
+.. _pre-commit: https://pre-commit.com/
