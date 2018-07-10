@@ -1,3 +1,17 @@
+"""Manages the metadata required for the sqlalchemy connection to the database.
+
+This module exports the Meta object, which is used by the user to get access
+to a session to their PostgreSQL database, as shown below.
+
+.. code-block:: python
+    from fonduer import Meta
+
+    DB = "db_name"
+    session = Meta.init("postgres://localhost:5432/" + DB).Session()
+
+The new_sessionmaker function is used internally for parallelization.
+"""
+
 import logging
 from builtins import object
 from urllib.parse import urlparse
@@ -11,6 +25,7 @@ logger = logging.getLogger(__name__)
 
 # Defines procedure for setting up a sessionmaker
 def new_sessionmaker():
+    """Return a session bound to the sqlalchemy engine."""
     # Turning on autocommit for Postgres, see
     # http://oddbird.net/2014/06/14/sqlalchemy-postgres-autocommit/
     # Otherwise any e.g. query starts a transaction, locking tables... very
@@ -76,7 +91,7 @@ class Meta(object):
 
     @classmethod
     def _init_db(cls):
-        """ Initialize the storage schema.
+        """Initialize the storage schema.
 
         This call must be performed after all classes that extend
         Base are declared to ensure the storage schema is initialized.

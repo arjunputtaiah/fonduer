@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 
 
 def _to_annotation_generator(fns):
-    """"
+    """
     Generic method which takes a set of functions, and returns a generator that yields
     function.__name__, function result pairs.
     """

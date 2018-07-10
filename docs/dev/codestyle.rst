@@ -25,10 +25,10 @@ For sorting imports, we reply on `isort`_. Our repository already includes a
 ``.isort.cfg`` that is compatible with black. 
 
 We use `flake8`_ and `flake8-docstrings`_ to check code style as well, such as
-ensuring docstrings are present and that there are not unused imports.
+ensuring docstrings are present and that there are not unused imports. For
+docstrings we try and follow the conventions in `PEP 257`_.
 
-You can run a code style check on
-your local machine by running our checks::
+You can run a code style check on your local machine by running our checks::
 
     $ make check 
 
@@ -37,4 +37,5 @@ your local machine by running our checks::
 .. _flake8-docstrings: https://pypi.org/project/flake8-docstrings/
 .. _flake8: http://flake8.pycqa.org/en/latest/
 .. _isort: https://github.com/timothycrosley/isort
+.. _PEP 257: https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings
 .. _pre-commit: https://pre-commit.com/
