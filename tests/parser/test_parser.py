@@ -52,13 +52,27 @@ def test_parse_md_details(caplog):
     # Check that doc has a figure
     assert len(doc.figures) == 1
     assert doc.figures[0].url == "http://placebear.com/200/200"
+    assert doc.figures[0].position == 0
 
     # Check that doc has a table
     assert len(doc.tables) == 1
     assert doc.tables[0].position == 0
+    assert doc.tables[0].document.name == "md"
 
     # Check that doc has cells
     assert len(doc.cells) == 16
+    cells = list(doc.cells)
+    assert cells[0].row_start == 0
+    assert cells[0].col_start == 0
+    assert cells[0].position == 0
+    assert cells[0].document.name == "md"
+    assert cells[0].table.position == 0
+
+    assert cells[10].row_start == 2
+    assert cells[10].col_start == 2
+    assert cells[10].position == 10
+    assert cells[10].document.name == "md"
+    assert cells[10].table.position == 0
 
     # Check that doc has phrases
     assert len(doc.phrases) == 45
