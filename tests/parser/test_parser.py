@@ -53,6 +53,7 @@ def test_parse_md_details(caplog):
     assert len(doc.figures) == 1
     assert doc.figures[0].url == "http://placebear.com/200/200"
     assert doc.figures[0].position == 0
+    assert doc.figures[0].stable_id == "md::figure:0:0"
 
     # Check that doc has a table
     assert len(doc.tables) == 1
