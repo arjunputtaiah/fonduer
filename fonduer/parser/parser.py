@@ -468,9 +468,7 @@ class FigureInfo(object):
     def enter_figure(self, node, figure_idx):
         if node.tag == "img":
             figure_idx += 1
-            stable_id = "{}::{}:{}:{}".format(
-                self.document.name, "figure", figure_idx, figure_idx
-            )
+            stable_id = "{}::{}:{}".format(self.document.name, "figure", figure_idx)
             self.figure = Figure(
                 document=self.document,
                 stable_id=stable_id,
